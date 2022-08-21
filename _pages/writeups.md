@@ -4,6 +4,15 @@ layout: single
 permalink: /writeups/
 author_profile: true
 excerpt: 'Writeups for CTFs/Boxes'
+toc: true
+toc_label: Table of contents
 ---
 
-# Nothing here yet, check back later
+# About
+Writeups for different CTF and boxes that I did. This will serve as a place for me do detail my learning journey too.
+
+## CTF
+
+### [ImaginaryCTF 2022](/writeups/imaginaryctf2022)
+
+## Box
