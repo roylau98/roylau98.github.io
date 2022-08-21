@@ -361,7 +361,7 @@ Flag: ictf{42.717_12.112}
 ## Unpuzzled4
 Description: THIS IS AN OSINT CHALLENGE. It looks like unpuzzler7 has been getting into photography recently. His pictures aren't very good though, you can't even tell what the location of the pictures are!
 
-This particular challenge requires us to join the imaginaryctf discord server. There I managed to find a user named unpuzzler7#6451, which had a link to a flickr profile.
+This particular challenge requires us to join the imaginaryctf discord server. There I managed to find a user named unpuzzler7#6451, which had a link to a flickr profile.  
 ![unpuzzler7#6451](/assets/images/imaginaryctf2022/forensics_unpuzzled4_1.jpg)
 
 Going to flickr we see this profile which had 2 images uploaded.
