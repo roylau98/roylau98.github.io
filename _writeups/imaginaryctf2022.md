@@ -130,12 +130,12 @@ output = ''
 output2 = ''
 
 for i in temp:
-	if ord(i) == 128077:
-		output += '1'
-		output2 += '0'
-	else:
-		output += '0'
-		output2 += '1'
+    if ord(i) == 128077:
+        output += '1'
+	output2 += '0'
+    else:
+	output += '0'
+	output2 += '1'
 
 output = "".join([chr(int(output[i:i+8],2)) for i in range(0, len(output), 8)])
 output2 = "".join([chr(int(output2[i:i+8],2)) for i in range(0, len(output2), 8)])
@@ -298,7 +298,7 @@ Instead I downloaded the source code of the web page and run the following comma
 cat button.html | grep -v "notSusFunction()"
 ```
 
--v tag for grep does an invert-match which allow me to find the lines which does not have "notSusFunction()".
+-v tag for grep does an invert-match which allow me to find lines which does not have "notSusFunction()".
 ![terminal](/assets/images/imaginaryctf2022/web_button_3.jpg)
 
 Running the function "motSusFunction()" in the console will give us the correct flag.
@@ -319,9 +319,9 @@ However, after this I became very stuck. Although I got a binary string, decodin
 ```javascript
 <script>
 function createToken(text) {
-	let encrypted = "";
+  let encrypted = "";
   for (let i = 0; i < text.length; i++) {
-		encrypted += ((text[i].charCodeAt(0)-43+1337) >> 0).toString(2)
+	encrypted += ((text[i].charCodeAt(0)-43+1337) >> 0).toString(2)
   }
   document.cookie = encrypted
 }
