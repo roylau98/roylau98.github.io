@@ -9,7 +9,7 @@ toc_sticky: true
 toc_label: Challenges
 ---
 # About
-A very late writeup for Imagniary CTF 2022. The CTF was hosted from 16 July 2022 - 19 July 2022 and here are the challenges that I managed to solve.
+A very late writeup for Imaginary CTF 2022. The CTF was hosted from 16 July 2022 - 19 July 2022 and here are the challenges that I managed to solve.
 ![solved](/assets/images/imaginaryctf2022/solved.jpg)
 
 # Pwn
