@@ -9,7 +9,7 @@ toc_sticky: true
 toc_label: Questions
 ---
 ## About
-A writeup for a TryHackMe room **PS Eclipse** completed on 22 July 2023.
+A writeup for a TryHackMe room [**PS Eclipse**](https://tryhackme.com/room/posheclipse) completed on 22 July 2023.
 
 ## Scenario
 

@@ -18,3 +18,4 @@ Writeups for different CTF and boxes that I did. This will serve as a place for 
 ## Box
 
 ### [TryHackMe - PS Eclipse](/writeups/thmPSEclipse)
+### [TryHackMe - Conti](/writeups/conti)
