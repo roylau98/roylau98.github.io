@@ -57,7 +57,7 @@ index="main" EventCode=1
 
 ![Untitled](/assets/images/thmconti/conti_7.png)
 
-However, there are many Image rows which contain “Splunk” which is not what I am looking for. Thus, I updated the filter to the one below to remove all the log entries that I am not interested in.
+However, there are many Image rows which contain “Splunk” and is not what I am looking for. Thus, I updated the filter to the one below to remove all the log entries that I am not interested in.
 
 ```
 index="main" EventCode=1 NOT "Splunk"
