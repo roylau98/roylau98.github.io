@@ -2,7 +2,7 @@
 title: 'THM - Conti'
 layout: single
 author_profile: true
-permalink: /writeups/conti
+permalink: /writeups/thmconti
 excerpt: 'Writeup for TryHackMe Conti Room'
 toc: true
 toc_sticky: true
@@ -33,7 +33,7 @@ Below are the error messages that the Exchange admin and employees see when they
 
 ### Gathering log information
 
-Using `index=”main”` and setting to “**all time**” for the date range shows 28145 events in splunk.
+Using `index="main"` and setting to “**all time**” for the date range shows 28145 events in splunk.
 
 ![Untitled](/assets/images/thmconti/conti_4.png)
 
@@ -57,7 +57,7 @@ index="main" EventCode=1
 
 ![Untitled](/assets/images/thmconti/conti_7.png)
 
-However, there are many Image fields which contain “Splunk” which is not what I am looking for. Thus, I updated the filter to the one below to remove all the log entries that I am not interested in.
+However, there are many Image rows which contain “Splunk” which is not what I am looking for. Thus, I updated the filter to the one below to remove all the log entries that I am not interested in.
 
 ```
 index="main" EventCode=1 NOT "Splunk"
