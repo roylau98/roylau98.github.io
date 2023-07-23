@@ -8,3 +8,6 @@ My name is Roy, a year 3 university undergraduate pursuing a computer science de
 My interest in cybersecurity started during my first Capture The Flag (CTF) competition. Even though I did poorly in it, I was introduced to computer security there, and this interest would continue to grow as I participated in more CTFs. In my free time, I would still attend CTFs to hone my skills and learn more about computer security.
 
 Programming languages learnt: C, C++, Python, Java
+
+# Certifications
+CompTIA Security+ SY0-601 (Attained: 22 June 2023, Expires: 22 June 2026, Verification code: CGY0S1ZSGEVQQGC6)
