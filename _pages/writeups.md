@@ -14,6 +14,7 @@ Writeups for different CTF and boxes that I did. This will serve as a place for 
 ## CTF
 
 ### [ImaginaryCTF 2022](/writeups/imaginaryctf2022)
+### [LITCTF 2023](/writeups/litctf2023)
 
 ## Box
 
