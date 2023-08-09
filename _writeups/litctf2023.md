@@ -10,7 +10,7 @@ toc_label: Challenges
 ---
 # About
 Writeup for LITCTF 2023 held on 5 Aug 2023 - 8 Aug 2023. The following are the challenges that I managed to solve.
-![solved](/assets/images/litctf2023/solved.jpg)
+![solved](/assets/images/litctf2023/solved.png)
 
 # Pwn
 ## My Pet Canary's Birthday Pie
