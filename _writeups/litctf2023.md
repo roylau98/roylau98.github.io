@@ -45,7 +45,7 @@ int main() {
 
 I can see that there are two vulnerabilities, format string and buffer overflow.  
 
-The format string attack will allow us to recover the stack canary.  
+Stack canary is enabled for this binary. Using the format string attack will allow us to recover the stack canary.  
 
 However, recovering the stack canary is not enough due to  Position Independent Executable (PIE) enabled. With PIE enabled, the binary will be loaded into a different memory address each time it is run. This means that I cannot hard code the memory address of `win()` to overwrite the return address of `vuln()`. PIE enabled binary are still exploitable as the offset between `win()` and `main()` does not change and remains even if the binary is run again.  
 
