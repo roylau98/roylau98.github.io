@@ -106,16 +106,13 @@ analytics:
 author:
   name             : "Roy Lau"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Year 4 Computer Science student interested in cybersecurity, artificial intelligence, and competitive programming."
+  bio              : "Year 4 Computer Science student interested in cybersecurity."
   location         : "-"
   email            :
   links: 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/roylau98"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin-in"
-      url: "https://www.linkedin.com/in/roy-lau-5a8772159/"
 
 # Site Footer
 footer:
@@ -123,9 +120,6 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/roylau98"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin-in"
-      url: "https://www.linkedin.com/in/roy-lau-5a8772159/"
 
 
 
