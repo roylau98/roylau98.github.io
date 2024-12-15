@@ -19,6 +19,7 @@ Writeups for different CTF and boxes that I did. This will serve as a place for 
 ## HackTheBox
 
 ### [Sherlock - Subatomic](/writeups/sherlockSubatomic)
+### [Sherlock - Heartbreaker-Continuum](/writeups/sherlockHeartbreaker)
 
 ## TryHackMe
 
