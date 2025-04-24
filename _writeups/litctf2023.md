@@ -1,5 +1,5 @@
 ---
-title: 'LITCTF 2022'
+title: 'LITCTF 2023'
 layout: single
 author_profile: true
 permalink: /writeups/litctf2023
