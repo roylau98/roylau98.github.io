@@ -259,7 +259,11 @@ We can set a Wireshark filter `tcp.dstport == 8000` to find the packet sent. Loo
 
 ![Untitled](/assets/images/htbsherlock/lovely/key.png)
 
-The IV is likely embedded within the encrypted file. Thus to recover the IV we first have to understand how the malware generates and stores the IV. First we see a call to generate 16 bytes randomly after mapping a file into the process. This mapped file is the file to be encrypted.
+However, before the malware sends the key, it manipulates it by performing an xor before base64 encoding it. Thus, we can perform the xor operation to recover the AES key.
+
+![Untitled](/assets/images/htbsherlock/lovely/computekey.png)
+
+Next, we have to recover the IV which is likely embedded within the encrypted file. Thus to recover the IV we first have to understand how the malware generates and stores the IV. First we see a call to generate 16 bytes randomly after mapping a file into the process. This mapped file is the file to be encrypted.
 
 ![Untitled](/assets/images/htbsherlock/lovely/genrand.png)
 
@@ -291,10 +295,8 @@ Finally the malware unmaps the file from the process, writing the encrypted cont
 ![Untitled](/assets/images/htbsherlock/lovely/unmapview.png)
 ![Untitled](/assets/images/htbsherlock/lovely/flushing.png)
 
-Thus we now have the knowledge to create the decryption script.
+Thus we now have the knowledge to decrypt the contents of `Attachement.txt.naso`. The null bytes seen at the end has to be removed before computing the hash.
 
-```python
+![Untitled](/assets/images/htbsherlock/lovely/decrypted.png)
 
-```
-
-**Answer**: 
+**Answer**: e9348cfdb3dcb8f6ab4b6c439750d8a28e65bb8cd71a22472fd01b783e98a126
