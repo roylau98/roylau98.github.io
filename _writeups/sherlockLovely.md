@@ -9,7 +9,7 @@ toc_sticky: true
 toc_label: Questions
 ---
 ## About
-A writeup for a HackTheBox [**Lovely Malware (Sherlock)**](https://app.hackthebox.com/sherlocks/Lovely%20Malware) completed on <date>.
+A writeup for a HackTheBox [**Lovely Malware (Sherlock)**](https://app.hackthebox.com/sherlocks/Lovely%20Malware) completed on 20 August 2025.
 
 ![Untitled](/assets/images/htbsherlock/lovely/completed.png)
 
@@ -17,15 +17,13 @@ A writeup for a HackTheBox [**Lovely Malware (Sherlock)**](https://app.hackthebo
 
 An employee at NeirCyber Security discovered a suspicious file named employee_benefits.exe on their desktop. The employee found the file after returning from lunch and immediately reported it to the IT security team, suspecting that it could be malicious. The objective is to reverse engineer the file and dissect its inner workings. This is a warning that this Sherlock includes software that is going to interact with your computer and files. This software has been intentionally included for educational purposes and is NOT intended to be executed or used otherwise. Always handle such files in isolated, controlled, and secure environments. One the Sherlock zip has been unzipped, you will find a DANGER.txt file. Please read this to proceed.
 
-A single zip file (lovelymalware.zip, MD5: <md5>>) was given.
+A single zip file (lovelymalware.zip, MD5: aa30c1c6f62e3287575062cded5cf3d0) was given.
 
-The diffculty of this sherlocks is because the malware dynamically resolves all API functions used. Thus if one looks at the import section they will view very little imports. This sherlock can be solved dynamically, or manually by trying to resolve the functions used. 
-
-To solve this sherlock through static analysis, we have to understand the API hashing algorithm which can be found at 0x140003CE0.
+The difficulty of this sherlocks is that the malware dynamically resolves all API functions used. Thus if one looks at the import section they will view very little imports. To solve this sherlock through static analysis, we have to understand the API hashing algorithm which can be found at 0x140003CE0. Essentially, this algorithm performs a `shl 19` and a `shr 13` operation, or the results and add the current character to the hash.
 
 ![Untitled](/assets/images/htbsherlock/lovely/apihashing.png)
 
-Thus since we understand the API hashing algorithm, we can write a script which calculates all hashes in common DLL like kernelbase.dll, kernel32.dll, ntdll.dll, and advapi.dll. The following is the python implementation.
+The following is the python implementation of the API hashing algorithm which is the `hash()` function. The script allows us to compute the hash for each Windows API in the different DLLs.
 
 ```python
 import pefile
@@ -219,7 +217,7 @@ The malware make use of TlsCallback to set up the encryption key 'Love_Her'. It 
 
 If we find cross references to the decrypted string, we see that it was passed as a parameter to the function at `0x140007780` which calls `vsprintf` to create a formatted string. 
 
-![Untitled](/assets/images/htbsherlock/lovely/printfmgstring.png)
+![Untitled](/assets/images/htbsherlock/lovely/printfmtstring.png)
 
 Eventually, the formatted string was passed as a parameter to `send`. Thus, this confirms that that is the format used.
 
