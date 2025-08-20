@@ -21,11 +21,51 @@ A single zip file (lovelymalware.zip, MD5: <md5>>) was given.
 
 The diffculty of this sherlocks is because the malware dynamically resolves all API functions used. Thus if one looks at the import section they will view very little imports. This sherlock can be solved dynamically, or manually by trying to resolve the functions used. 
 
-To solve this sherlock through static analysis, we have to understand the API hashing algorithm which can be found at 0x140003CE0. Appendix B shows the python implementation of this API hashing. 
+To solve this sherlock through static analysis, we have to understand the API hashing algorithm which can be found at 0x140003CE0.
 
 ![Untitled](/assets/images/htbsherlock/lovely/apihashing.png)
 
-Thus since we understand the API hashing algorithm, we can write a script which calculates all hashes in common DLL like kernelbase.dll, kernel32.dll, ntdll.dll, and advapi.dll. The python implementation can be found in Appendix A.
+Thus since we understand the API hashing algorithm, we can write a script which calculates all hashes in common DLL like kernelbase.dll, kernel32.dll, ntdll.dll, and advapi.dll. The following is the python implementation.
+
+```python
+import pefile
+import glob
+import json
+import os
+
+def sss(x):
+    return '???' if x is None else x.decode()
+
+def hash(name):
+    hash = 0
+    for i in range(len(name)):
+        hash += ((((hash << 19) & 0xffffffff) | (hash >> 13)) + ord(name[i]))
+        hash &= 0xffffffff
+
+    return hex(hash)
+
+def main():
+    
+    l = glob.glob('C:\\Users\\<User>\\Desktop\\lovelymalware\\dll\\*.dll')
+    r = []
+
+    for el in l:
+        try:
+            pe = pefile.PE(el)
+            d = [pefile.DIRECTORY_ENTRY["IMAGE_DIRECTORY_ENTRY_EXPORT"]]
+
+            pe.parse_data_directories(directories=d)
+            exports = [(e.ordinal, sss(e.name), hash(sss(e.name))) for e in pe.DIRECTORY_ENTRY_EXPORT.symbols]
+            r.append(dict(file=el, exports=exports))
+        except:
+            r.append(dict(file=el, exports="FAIL"))
+
+    with open('export.json', 'w') as f:
+        json.dump(r, f, ensure_ascii=False, indent=4)
+
+if __name__=='__main__':
+    main()
+```
 
 ## Task
 
@@ -35,7 +75,7 @@ We can use MalCat to get the SHA256 hash of the malware.
 
 ![Untitled](/assets/images/htbsherlock/lovely/sha256.png)
 
-**Answer**: 
+**Answer**: 83cb5e8b7455fcb3b6c2d45269b08b3ae003dfed4ce8ca942cd007c1ebf17cf2
 
 ### The malware uses a global mutex to ensure that only one instance of it is being executed at the same time. What is the name of the mutex?
 
@@ -80,10 +120,6 @@ The function at 0x140007EA0 is responsible for checking if the program started n
 It then enters this function block which calls `OpenProcess` and `GetModuleFileNameExA` to get the full module path of the parent process. It then construct the path to explorer.exe. The malware finally compares the module path of the parent process and the path to explorer.exe. 
 
 ![Untitled](/assets/images/htbsherlock/lovely/checkparent.png)
-
-We can confirm this theory by looking at the debugger. `[rsp+28]` contains the full path to explorer.exe while `[rsp+290]` contains the parent process name. Thus, this is the function (`0x140003C60`) responsible for checking if the parent process is explorer.exe. `0x140003C60` returns 0 if the string does not match, otherwise it returns 1.
-
-![Untitled](/assets/images/htbsherlock/lovely/strcmp.png)
 
 Therefore, if the parent process is not as expected (C:\Windows\explorer.exe), the function 0x140007EA0 returns 0.
 
@@ -205,11 +241,7 @@ If we look at the function call at `0x140007A68` we realise that it `htons` is c
 
 ### What is the extension added to the encrypted files?
 
-We can detonate the malware and view the extensions added to encrypted files.
-
-![Untitled](/assets/images/htbsherlock/lovely/ext.png)
-
-Otherwise by decrypting all the encrypted strings we can also recover the extension. 
+We can detonate the malware and view the extensions added to encrypted files. Otherwise by decrypting all the encrypted strings we can also recover the extension. 
 
 **Answer**: .naso
 
@@ -217,7 +249,7 @@ Otherwise by decrypting all the encrypted strings we can also recover the extens
 
 A ransomnote was dropped after the malware was detonated in the VM. This ransomnote included the Bitcoin address used by the malware author.
 
-![Untitled](/assets/images/htbsherlock/lovely/ext.png)
+![Untitled](/assets/images/htbsherlock/lovely/bitcoin.png)
 
 **Answer**: bc1qntgwduujdjnfv6txwxugdsx6nw5mfhgqa4nn82
 

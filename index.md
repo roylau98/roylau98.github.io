@@ -15,3 +15,5 @@ Security Blue Team Blue Team Level 1 (Attained: 20 December 2023, Expires: -, Ve
 EC-Council Certified Ethical Hacker (Attained: 9 October 2024, Expires: 1 November 2025, Verification code: ECC5234610789)
 
 Cisco Certified CyberOps Associate 200-201 (Attained: 31 December 2024, Expires: 31 December 2027, Verification code: 7da7afe59ef445cc8e276b02951e0d98)
+
+OffSec Exploit Developer (OSED) (Attained: 14 August 2025, Expires: -, Credential ID: 158172383)
