@@ -24,6 +24,7 @@ Writeups for different CTF and boxes that I did. This will serve as a place for 
 ### [Sherlock - Lockpick3.0](/writeups/sherlockLockpick3)
 ### [Sherlock - Lockpick4.0](/writeups/sherlockLockpick4)
 ### [Sherlock - Lovely Malware](/writeups/sherlockLovely)
+### [Sherlock - Safecracker](/writeups/sherlocksafecracker)
 
 ## TryHackMe
 
