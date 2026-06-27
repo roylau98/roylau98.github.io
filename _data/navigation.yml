@@ -2,7 +2,7 @@
 main:
   - title: "Writeups"
     url: /writeups/
-  - title: "AI/ Hardware"
-    url: /AI-H/
-  - title: "Others"
-    url: /others
+  - title: "Malware Analysis"
+    url: /ma/
+  - title: "Reverse Engineering"
+    url: /re/
